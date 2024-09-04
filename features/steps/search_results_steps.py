@@ -9,6 +9,7 @@ SIDE_NAV_ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[data-test='content-wrapper'] [id*
 @when('Click on Add to Cart button')
 def click_add_to_cart(context):
     context.driver.find_element(*ADD_TO_CART_BTN).click() #always click on the 1st Add to cart btn
+    sleep(5)
     context.driver.wait.until(EC.visibility_of_element_located(SIDE_NAV_PRODUCT_NAME))
 @when('Store product name')
 def store_product_name(context):
