@@ -22,4 +22,4 @@ def search_product(context):
 def verify_search_results(context):
     expected_text = 'tea'
     actual_text = context.driver.find_element(By.XPATH, "//div[@data-test='resultsHeading']").text
-    assert expected_text in actual_text, f'Expected {expected_text} ot in actual {actual_text}'
+    assert expected_text in actual_text, f'Expected {expected_text} not in actual {actual_text}'
