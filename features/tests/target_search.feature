@@ -29,3 +29,4 @@ Feature: Target main page search tests
     |coffee   |coffee             |
     |tea      |tea                |
     |iphone   |iphone             |
+

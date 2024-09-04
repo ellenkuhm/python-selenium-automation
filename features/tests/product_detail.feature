@@ -1,10 +1,9 @@
 # Created by Ellen at 9/4/2024
 Feature: Functionality of product page
 
-  Scenario: Add a product to cart
+  Scenario: User can add a product to cart
     Given Open target main page
-    When Search for tea
-    Then Click on product
+    When Search for hat
     And  Click on Add to Cart button
     And  Store product name
     And  Confirm Add to Cart button from side navigation
