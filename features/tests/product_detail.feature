@@ -10,3 +10,8 @@ Feature: Functionality of product page
     And  Open cart page
     Then Verify cart has 1 item(s)
     And  Verify cart has correct product
+
+#
+#  Scenario: User can select colors
+#    Given Open target product A-91511634 page
+#    Then Verify user can click through colors
