@@ -30,3 +30,7 @@ Feature: Target main page search tests
     |tea      |tea                |
     |iphone   |iphone             |
 
+  Scenario: Verify that user can see products
+     Given Open target main page
+     When Search for fruit snacks
+     Then Verify that every product has a name and an image

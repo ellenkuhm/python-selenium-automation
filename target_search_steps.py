@@ -8,7 +8,7 @@ def open_target(context):
     context.driver.get('https://www.target.com/')
 
 
-@when('Search for product')
+@when('Search for tea')
 def search_product(context):
     # find search field and enter text
     context.driver.find_element(By.ID, 'search').send_keys('tea')

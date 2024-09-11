@@ -3,6 +3,9 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.wait import WebDriverWait # for expected conditions
 from webdriver_manager.chrome import ChromeDriverManager
 
+from app.application import Application
+
+
 def browser_init(context): # function to intialize the browser
     """
     :param context: Behave context
@@ -18,7 +21,7 @@ def browser_init(context): # function to intialize the browser
     # explicitly_wait is when you can set a condition for your wait
     # ex: trying to set a condition for the element to be clickable before clicking the element
     context.driver.wait = WebDriverWait(context.driver, 15) # for expected conditions
-
+    context.app = Application(context.driver)
 
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
