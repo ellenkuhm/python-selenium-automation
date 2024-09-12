@@ -14,27 +14,27 @@ PRODUCT_TITLE = (By.CSS_SELECTOR, "[data-test='product-title']")
 PRODUCT_IMG = (By.CSS_SELECTOR, 'img')
 @when('Click on Add to Cart button')
 def click_add_to_cart(context):
-    context.driver.find_element(*ADD_TO_CART_BTN).click() #always click on the 1st Add to cart btn
-    # sleep(5)
-    context.driver.wait.until(EC.visibility_of_element_located(SIDE_NAV_PRODUCT_NAME)) # explicit wait
+    # context.driver.find_element(*ADD_TO_CART_BTN).click() #always click on the 1st Add to cart btn
+    # # sleep(5)
+    # context.driver.wait.until(EC.visibility_of_element_located(SIDE_NAV_PRODUCT_NAME)) # explicit wait
+    context.app.cart_page.click_add_to_cart()
 
 @when('Store product name')
 def store_product_name(context):
-    context.product_name = context.driver.find_element(*SIDE_NAV_PRODUCT_NAME).text
-    print(f'Product stored: {context.product_name}')
+    context.app.cart_page.store_product_name()
 
 @when('Confirm Add to Cart button from side navigation')
 def side_nav_click_add_to_cart(context):
-    context.driver.find_element(*SIDE_NAV_ADD_TO_CART_BTN).click()
+    context.app.cart_page.side_nav_add_to_cart()
     sleep(6)
 
 @then('Verify search results shown for {expected_product}')
 def verify_search_results(context, expected_product):
-    context.app.search_results_page.verify_text()
+    context.app.search_results_page.verify_search_results(expected_product)
 
 @then('Verify correct search results URL opens for {expected_product}')
 def verify_url(context, expected_product):
-    context.app.search_results_page.verify_url()
+    context.app.search_results_page.verify_product_in_url(expected_product)
 
 @then('Verify that every product has a name and an image') # uses a loop to execute
 def verify_products_name_img(context):

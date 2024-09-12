@@ -9,10 +9,8 @@ from pages.base_page import Page
 
 class SearchResultsPage(Page):
     SEARCH_RESULTS_TXT = (By.XPATH, "//div[@data-test='resultsHeading']")
-    def verify_text(self): # the function
-        actual_text = self.driver.find_element(*self.SEARCH_RESULTS_TXT).text # inside the self
-        assert 'coffee' in actual_text, f'Expected coffee not in actual {actual_text}'
+    def verify_search_results(self, expected_product): # the function
+        self.verify_partial_text(expected_product, *self.SEARCH_RESULTS_TXT) # from the base page
 
-    def verify_url(self): # another function
-        url = self.driver.current_url # inside the self
-        assert 'coffee' in url, f'Expected "coffee" not in {url}'
+    def verify_product_in_url(self, expected_product): # making it dynamic with "expected_product" variable
+        self.verify_partial_url(expected_product) # from the base page
