@@ -8,7 +8,8 @@ from time import sleep
 from pages.base_page import Page
 
 class SearchResultsPage(Page):
-    SEARCH_RESULTS_TXT = (By.XPATH, "//div[@data-test='resultsHeading']")
+    # SEARCH_RESULTS_TXT = (By.XPATH, "//div[@data-test='resultsHeading']")
+    SEARCH_RESULTS_TXT = (By.XPATH, "//span[contains(@class, 'h-text-bs')]")
     def verify_search_results(self, expected_product): # the function
         self.verify_partial_text(expected_product, *self.SEARCH_RESULTS_TXT) # from the base page
 

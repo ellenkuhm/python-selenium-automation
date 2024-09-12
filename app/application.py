@@ -8,7 +8,9 @@ from pages.header import Header
 from pages.search_results_page import SearchResultsPage
 from pages.cart_page import CartPage
 from pages.sign_in_page import SignInPage
-
+from pages.target_app_page import TargetAppPage
+from pages.privacy_policy_page import PrivacyPolicePage
+from pages.tc_page import TCPage
 
 
 class Application:
@@ -19,3 +21,6 @@ class Application:
         self.search_results_page = SearchResultsPage(driver)
         self.cart_page = CartPage(driver)
         self.sign_in_page = SignInPage(driver)
+        self.target_app_page = TargetAppPage(driver)
+        self.privacy_policy_page = PrivacyPolicePage(driver)
+        self.tc_page = TCPage(driver)

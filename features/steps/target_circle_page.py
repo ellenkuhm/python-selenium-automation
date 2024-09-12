@@ -18,4 +18,4 @@ def open_target(context):
 def verify_benefit_cells_amount(context, number):
     cells = context.driver.find_elements(By.CLASS_NAME, "cell-item-content")
     number = int(number) # "10" => 10
-    assert len(cells) == {number}, f'Expected {number} cells but got {len(cells)}'
+    assert len(cells) == number, f'Expected {number} cells but got {len(cells)}'

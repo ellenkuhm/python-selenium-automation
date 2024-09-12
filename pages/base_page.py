@@ -3,6 +3,7 @@
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from time import sleep
 class Page:
     def __init__(self,driver): # calling Selenium driver as an argument
         self.driver = driver
@@ -23,6 +24,26 @@ class Page:
 
     def input_text(self, text, *locator): # needs astric "*" because it gets treated like two things, by.something and value of locator
         self.driver.find_element(*locator).send_keys(text) # needs astric "*" because it gets treated like two things, by.something and value of locator
+
+    def get_current_window(self):
+        window = self.driver.current_window_handle
+        print('Current window: ', window)
+        return window
+
+    def switch_to_new_window(self):
+        self.wait.until(EC.new_window_is_opened) # waiting until see the new window(s)
+        windows = self.driver.window_handles # gets the IDs of the current window, "window_handles" is an attribute
+        print(f'All windows {windows}')
+        self.driver.switch_to.window(windows[1]) # command to switch to the ID of the second window in the list "[1]"
+        print(f'Switch to window => {windows[1]}')
+
+    def switch_to_window_by_id(self, window_id):
+        self.driver.switch_to.window(window_id)
+        print(f'Switch to window => {window_id}')
+
+    def close(self):
+        self.driver.close()
+
 
     def wait_until_clickable(self, *locator):
         self.wait.until(
