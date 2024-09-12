@@ -12,7 +12,7 @@ def search_product(context, product):
 
 @when('Click on Cart icon')
 def click_cart(context):
-    context.app.cart_page.click_cart()
+    context.app.header.click_cart()
 
 @then('Verify header in shown')
 def verify_header_present(context):
