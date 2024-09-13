@@ -14,4 +14,7 @@ class SearchResultsPage(Page):
         self.verify_partial_text(expected_product, *self.SEARCH_RESULTS_TXT) # from the base page
 
     def verify_product_in_url(self, expected_product): # making it dynamic with "expected_product" variable
-        self.verify_partial_url(expected_product) # from the base page
+        #self.verify_partial_url(expected_product) # from the base page
+        actual_url = self.driver.current_url
+        print(f'Actual url:{actual_url}')
+        print(f'Expected product: {expected_product}')

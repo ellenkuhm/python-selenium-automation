@@ -28,9 +28,9 @@ def browser_init(context, scenario_name): # function to intialize the browser
 
     # driver_path = ChromeDriverManager().install()
     # chrome configuration
-    # driver_path = r'C:\Users\Ellen\python-selenium-automation\chromedriver.exe'
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service) # "context" connecting to the driver
+    driver_path = r'C:\Users\Ellen\python-selenium-automation\chromedriver.exe'
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service) # "context" connecting to the driver
 
     # driver_path = GeckoDriverManager().install()
     # service = Service(driver_path)
@@ -55,20 +55,20 @@ def browser_init(context, scenario_name): # function to intialize the browser
     # )
 
     ### BROWSERSTACK ###
-    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    bs_user = 'ellenkuhm_dngxI0'
-    bs_key = 'hUnkZpTPbkg2CT4PUYXx'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    #
-    options = Options()
-    bstack_options = {
-        "os" : "OS X", # OS X,
-        "osVersion" : "sonoma",
-        'browserName': 'Safari',
-        'sessionName': scenario_name
-    }
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
+    # # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+    # bs_user = 'ellenkuhm_dngxI0'
+    # bs_key = 'hUnkZpTPbkg2CT4PUYXx'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # #
+    # options = Options()
+    # bstack_options = {
+    #     "os" : "OS X", # OS X,
+    #     "osVersion" : "sonoma",
+    #     'browserName': 'Safari',
+    #     'sessionName': scenario_name
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
 
 
 

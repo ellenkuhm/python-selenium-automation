@@ -36,6 +36,7 @@ def verify_search_results(context, expected_product):
 def verify_url(context, expected_product):
     context.app.search_results_page.verify_product_in_url(expected_product)
 
+
 @then('Verify that every product has a name and an image') # uses a loop to execute
 def verify_products_name_img(context):
     # context.driver.execute_script("window.scrollBy(0,2000)","")
