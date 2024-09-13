@@ -4,6 +4,8 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
+from selenium.webdriver.common.action_chains import ActionChains
+
 class Page:
     def __init__(self,driver): # calling Selenium driver as an argument
         self.driver = driver
@@ -85,6 +87,14 @@ class Page:
         actual_url = self.driver.current_url
         assert expected_partial_url in actual_url, f'Expected {expected_partial_url} not in {actual_url}'
 
+
+    def hover_element(self, *locator):
+        element = self.find_element(*locator)
+
+        actions = ActionChains(self.driver)  # define actions to work, pass to driver
+        actions.move_to_element(element)
+        actions.perform() # if you wanted to click you would put 'actions.perform.click()
+        sleep(2)
 
 
     # def refresh(self):

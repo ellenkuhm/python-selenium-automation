@@ -12,6 +12,7 @@ from pages.target_app_page import TargetAppPage
 from pages.privacy_policy_page import PrivacyPolicePage
 from pages.tc_page import TCPage
 from pages.create_account_page import CreateAccountPage
+from pages.help_page import HelpPage
 
 
 class Application:
@@ -26,3 +27,4 @@ class Application:
         self.privacy_policy_page = PrivacyPolicePage(driver)
         self.tc_page = TCPage(driver)
         self.create_account_page = CreateAccountPage(driver)
+        self.help_page = HelpPage(driver)

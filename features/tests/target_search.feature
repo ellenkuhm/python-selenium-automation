@@ -40,7 +40,7 @@ Feature: Target main page search tests
     Given Open target main page
     When Search for tea
     And Hover favorites icon
-#    Then Favorites tooltip is shown
+    Then Favorites tooltip is shown
 
-    # * Reminder* :
-    # And will always copy the step before it
+    # * REMINDER * :
+    # And will always copy the step before it for the steps

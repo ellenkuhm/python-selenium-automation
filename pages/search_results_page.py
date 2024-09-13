@@ -16,10 +16,12 @@ class SearchResultsPage(Page):
     LISTINGS = (By.CSS_SELECTOR, "[data-test='@web/site-top-of-funnel/ProductCardWrapper']")
     PRODUCT_TITLE = (By.CSS_SELECTOR, "[data-test='product-title']")
     PRODUCT_IMG = (By.CSS_SELECTOR, 'img')
-
+    FAV_TOOLTIP_TXT = (By.XPATH, "//div[text()= 'Click to sign in and save' or starts-with(text(),'Favorited!')]")
 
     def verify_search_results(self, expected_product):  # the function
-        # self.verify_partial_text(expected_product, *self.SEARCH_RESULTS_TXT) # from the base page
+        # self.verify_partial_text(expected_product, *self.SEARCH_RESULTS_TXT)
+        # from the base page it is: assert actual_text in expected_partial_text
+        # we need: assert expected_partial_text in actual_text, base page
         print(f'Expected product: {expected_product}')
         actual_text = self.find_element(*self.SEARCH_RESULTS_TXT).text
         assert expected_product in actual_text, f'Expected {expected_product} not in {actual_text}'
@@ -42,9 +44,8 @@ class SearchResultsPage(Page):
             product.find_element(*self.PRODUCT_IMG)  # find the product's image after the title
 
     def hover_fav_icon(self):
-        fav_icon = self.find_element(*self.FAV_BTN)
-
-        actions = ActionChains(self.driver)  # define actions to work, pass to driver
-        actions.move_to_element(fav_icon)
-        actions.perform()
+        self.hover_element(*self.FAV_BTN) # calling from the base page
         sleep(2)
+
+    def verify_fav_tooltip(self):
+        self.wait_for_element_appear(*self.FAV_TOOLTIP_TXT)
