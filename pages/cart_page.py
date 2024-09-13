@@ -45,7 +45,6 @@ class CartPage(Page):
         #assert amount in cart_summary, f'Expected {amount} not in actual {cart_summary}'
 
 
-
     def correct_product(self):
         actual_name = self.find_element(*self.CART_ITEM_TITLE)
         print(f'Actual product in cart name: {actual_name}')

@@ -19,18 +19,28 @@ Feature: Target main page search tests
     Then Verify search results shown for iphone
     And Verify correct search results URL opens for iphone
 
-#  Scenario Outline: User can search for a product
-#    Given Open target main page
-#    When Search for <product>
-#    Then Verify search results shown for <expected_result>
-#    And Verify correct search results URL opens for <expected_result>
-#    Examples:
-#    |product  |expected_result    |
-#    |coffee   |coffee             |
-#    |tea      |tea                |
-#    |iphone   |iphone             |
+  Scenario Outline: User can search for a product
+    Given Open target main page
+    When Search for <product>
+    Then Verify search results shown for <expected_result>
+    And Verify correct search results URL opens for <expected_result>
+    Examples:
+    |product  |expected_result    |
+    |coffee   |coffee             |
+    |tea      |tea                |
+    |iphone   |iphone             |
 
   Scenario: Verify that user can see products
      Given Open target main page
      When Search for fruit snacks
      Then Verify that every product has a name and an image
+
+  # example scenario of using selenium action chains (hover)
+  Scenario: User can see favorites tooltip for search results
+    Given Open target main page
+    When Search for tea
+    And Hover favorites icon
+#    Then Favorites tooltip is shown
+
+    # * Reminder* :
+    # And will always copy the step before it
