@@ -12,10 +12,10 @@ Feature: Log-in Functionality
     When Click Sign In
     When From right side navigation, click Create account
     Then Verify Create account page form opened
-    Then Input email on create account page
-    And Input first name on create account page
-    Then Input last name on create account page
-    Then Input password on create account page
+    Then Input email on create account page: email@gmail.com
+    And Input first name on create account page: first name
+    Then Input last name on create account page: last name
+    Then Input password on create account page: password
     And Click "Keep me signed in checkbox" on create account page
     Then Click Create account button
 ##    Then Verify Join Target Circle page Opens # verify_text
@@ -27,8 +27,8 @@ Feature: Log-in Functionality
     When Click Sign In
     When From right side navigation, click Sign in
     Then Verify Sign In form opened
-    And Input email for sign-in
-    Then Input incorrect password for sign-in
+    And Input email for sign-in: ellenkuhm@gmail.com
+    Then Input incorrect password for sign-in: test1234
     And Click Sign in with password button
     Then Verify "That password is incorrect." message appears
 

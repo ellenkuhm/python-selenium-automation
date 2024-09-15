@@ -28,11 +28,11 @@ def click_tc_link(context):
 def verify_tc_opened(context):
     context.app.tc_page.verify_tc_url()
 
-@then ('Input {email} for sign-in')
+@then ('Input email for sign-in: {email}')
 def input_email(context, email):
     context.app.sign_in_page.sign_in_email(email)
 
-@then('Input {incorrect_password} for sign-in')
+@then('Input incorrect password for sign-in: {incorrect_password}')
 def input_incorrect_password(context, incorrect_password):
     context.app.sign_in_page.sign_in_incorrect_password(incorrect_password)
 

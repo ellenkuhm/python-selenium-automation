@@ -12,19 +12,19 @@ def verify_create_accn_opened(context):
     expected_text = 'Create your Target account'
     context.app.create_account_page.create_accn_msg(expected_text)
 
-@then('Input {email} on create account page')
+@then('Input email on create account page: {email}')
 def email_create_account(context, email):
     context.app.create_account_page.create_account_email(email)
 
-@then('Input {first_name} on create account page') #always needs to be the same as what's in the function
+@then('Input first name on create account page: {first_name}') #always needs to be the same as what's in the function
 def first_name_create_account(context, first_name):
-    context.app.create_account_page.create_acount_first_name(first_name)
+    context.app.create_account_page.create_account_first_name(first_name)
 
-@then('Input {last_name} on create account page')
+@then('Input last name on create account page: {last_name}')
 def last_name_create_account(context, last_name):
     context.app.create_account_page.create_account_last_name(last_name)
 
-@then('Input {password} on create account page')
+@then('Input password on create account page: {password}')
 def create_account_password(context,password):
     context.app.create_account_page.create_account_password(password)
 
