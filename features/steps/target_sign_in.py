@@ -27,3 +27,19 @@ def click_tc_link(context):
 @then ('Verify Terms and Conditions page opened')
 def verify_tc_opened(context):
     context.app.tc_page.verify_tc_url()
+
+@then ('Input {email} for sign-in')
+def input_email(context, email):
+    context.app.sign_in_page.sign_in_email(email)
+
+@then('Input {incorrect_password} for sign-in')
+def input_incorrect_password(context, incorrect_password):
+    context.app.sign_in_page.sign_in_incorrect_password(incorrect_password)
+
+@then('Click Sign in with password button')
+def click_sign_in_with_password(context):
+    context.app.sign_in_page.sign_in_click_sign_in_with_password()
+
+@then('Verify "That password is incorrect." message appears')
+def incorrect_password_msg(context):
+    context.app.sign_in_page.sign_in_incorrect_password_msg()
