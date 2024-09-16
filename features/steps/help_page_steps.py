@@ -16,6 +16,4 @@ def verify_help_page_header(context, expected_text):
     context.app.help_page.verify_header(expected_text)
 
 
-# @then('Verify help Current promotions page opened')
-# def verify_help_page_header_promotions(context):
-#     context.app.help_page.verify_promotions()
+

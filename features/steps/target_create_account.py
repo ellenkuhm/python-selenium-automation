@@ -36,9 +36,6 @@ def create_account_check_keep_signed_in(context):
 def click_create_accn(context):
     context.app.create_account_page.create_accn_btn()
 
-# @then('Verify Join Target Circle page Opens')
-# def verify_join_target_circle_opens(context):
-#     expected_text =
 
 
 

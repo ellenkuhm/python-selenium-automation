@@ -5,6 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 from selenium.webdriver.common.action_chains import ActionChains
+from support.logger import logger
 
 class Page:
     def __init__(self,driver): # calling Selenium driver as an argument
@@ -13,18 +14,23 @@ class Page:
         self.wait = WebDriverWait(driver, timeout=15) # pass the driver and wait 15 seconds
 
     def open_url(self, url):
+        logger.info(f'Opening {url}...')
         self.driver.get(url)
 
     def find_element(self, *locator):
+        logger.info(f'Searching for element {locator}...')
         return self.driver.find_element(*locator)
 
     def find_elements(self, *locator):
+        logger.info(f'Searching for elements {locator}...')
         return self.driver.find_elements(*locator)
 
     def click(self, *locator):
+        logger.info(f'Clicking element {locator}...')
         self.driver.find_element(*locator).click()
 
     def input_text(self, text, *locator): # needs astric "*" because it gets treated like two things, by.something and value of locator
+        logger.info(f'Inputting text {text} for element {locator}...')
         self.driver.find_element(*locator).send_keys(text) # needs astric "*" because it gets treated like two things, by.something and value of locator
 
     def get_current_window(self):

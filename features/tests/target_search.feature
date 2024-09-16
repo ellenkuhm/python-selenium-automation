@@ -1,6 +1,7 @@
 # Created by Ellen at 9/4/2024
 Feature: Target main page search tests
 
+  @smoke @safari_only
   Scenario: User can search for coffee
     Given Open target main page
     When Search for coffee

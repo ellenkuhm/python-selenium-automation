@@ -1,4 +1,5 @@
 # Created by Ellen at 9/4/2024
+@smoke
 Feature: Functionality of product page
 
   Scenario: User can add a product to cart
